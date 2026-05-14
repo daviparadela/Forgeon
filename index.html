@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Básico -->
+    <title>ForgeOn | Infraestrutura de Vendas Enterprise</title>
+    <meta name="description" content="Projetamos ecossistemas proprietários para marcas que buscam faturamento de 7 dígitos com controle total de dados.">
+    <meta name="author" content="Davi Paradella">
+
+    <!-- Open Graph (WhatsApp, Instagram, Facebook) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ForgeOn | Infraestrutura de Vendas Enterprise">
+    <meta property="og:description" content="Pare de pagar taxas e seja dono da sua própria operação de escala.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&h=630&fit=crop"> 
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios-filled/50/ef4444/fire-element.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #030303;
+            --primary: #ef4444; /* Vermelho Forgeon */
+            --accent: #f87171;
+            --card-bg: #0a0a0a;
+            --border: rgba(255, 255, 255, 0.1);
+            --text-dim: #a1a1aa;
+            --star-color: #fbbf24;
+            --danger: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        body { 
+            background: var(--bg); 
+            color: #fff; 
+            line-height: 1.6; 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glow {
+            position: absolute; width: 600px; height: 400px;
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.12) 0%, transparent 70%);
+            top: -100px; left: 50%; transform: translateX(-50%);
+            z-index: -1; filter: blur(80px);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        header {
+            padding: 20px 0;
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(3, 3, 3, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo { 
+            font-size: 1.2rem; 
+            font-weight: 800; 
+            letter-spacing: -1px; 
+            text-transform: uppercase; 
+            /* Configuração do Gradiente Principal */
+            background: linear-gradient(90deg, #ef4444 0%, #f97316 50%, #fbb724 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .hero { padding: 140px 0 60px; text-align: center; }
+        .hero .badge {
+            display: inline-block; padding: 8px 16px; border-radius: 100px;
+            background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3);
+            color: var(--accent); font-size: 0.75rem; font-weight: 700; margin-bottom: 30px;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+        .hero h1 { 
+            font-size: clamp(2.8rem, 8vw, 5.5rem); font-weight: 800; 
+            letter-spacing: -4px; line-height: 0.95; margin-bottom: 30px;
+        }
+        .hero h1 span {
+            background: linear-gradient(180deg, #fff 30%, var(--primary) 100%);
+            background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero p { 
+            font-size: 1.3rem; color: var(--text-dim); 
+            max-width: 800px; margin: 0 auto 50px; font-weight: 400;
+        }
+
+        .btn {
+            padding: 20px 40px; border-radius: 12px; font-weight: 700;
+            text-decoration: none; transition: 0.3s; font-size: 1rem;
+            display: inline-block; cursor: pointer;
+        }
+        .btn-primary { 
+            background: #fff; color: #000; 
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+        .btn-primary:hover { transform: scale(1.05); background: #f0f0f0; }
+
+        .trust-bar { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; margin-bottom: 60px;}
+        .trust-bar p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-dim); margin-bottom: 25px;}
+        .logos { display: flex; justify-content: center; align-items: center; gap: 60px; opacity: 0.5; filter: grayscale(1); flex-wrap: wrap;}
+        
+        .infra { padding: 80px 0; }
+        .grid-infra { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card-infra { background: var(--card-bg); border: 1px solid var(--border); padding: 40px; border-radius: 24px; transition: 0.4s; }
+        .card-infra:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .card-infra h3 { font-size: 1.4rem; margin-bottom: 15px; font-weight: 700; }
+        .card-infra p { color: var(--text-dim); font-size: 0.95rem; }
+
+        .comparison { padding: 100px 0; background: #080808; border-radius: 60px; margin: 50px 0; }
+        .table-container { overflow-x: auto; margin-top: 50px; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { padding: 20px; color: var(--primary); font-size: 0.8rem; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+        td { padding: 25px 20px; border-bottom: 1px solid var(--border); font-size: 1rem; }
+        .check { color: #10b981; font-weight: bold; }
+        .fail { color: var(--danger); font-weight: 500; }
+
+        /* REVIEWS */
+        .reviews-section { 
+            padding: 100px 0; position: relative; overflow: hidden; width: 100vw; left: 50%; transform: translateX(-50%);
+        }
+        .reviews-section::before, .reviews-section::after {
+            content: ""; position: absolute; top: 0; width: 25%; height: 100%; z-index: 2; pointer-events: none;
+        }
+        .reviews-section::before { left: 0; background: linear-gradient(to right, var(--bg) 0%, transparent 100%); }
+        .reviews-section::after { right: 0; background: linear-gradient(to left, var(--bg) 0%, transparent 100%); }
+
+        .reviews-title { text-align: center; margin-bottom: 40px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--primary); }
+
+        .carousel-track {
+            display: flex; width: max-content; animation: scroll-infinite 40s linear infinite;
+        }
+        @keyframes scroll-infinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .carousel-track:hover { animation-play-state: paused; }
+
+        .review-card {
+            width: 380px; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border);
+            border-radius: 24px; padding: 30px; margin: 0 10px; backdrop-filter: blur(10px);
+            flex-shrink: 0; display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .stars { color: var(--star-color); margin-bottom: 15px; font-size: 0.8rem; }
+        .review-text { font-size: 0.95rem; color: #e4e4e7; margin-bottom: 25px; font-style: italic; min-height: 80px; }
+        .review-author { display: flex; align-items: center; gap: 15px; border-top: 1px solid var(--border); padding-top: 20px; }
+        .author-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+        .author-info h4 { font-size: 0.95rem; font-weight: 700; color: #fff; }
+        .author-info p { font-size: 0.75rem; color: var(--primary); }
+
+        /* FAQ */
+        .faq-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 15px; overflow: hidden; transition: 0.3s; }
+        .faq-question { width: 100%; padding: 25px 30px; background: none; border: none; color: #fff; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; font-size: 1.1rem; font-weight: 600; }
+        .faq-question span { color: var(--primary); transition: transform 0.3s; font-size: 1.5rem; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: rgba(255, 255, 255, 0.02); }
+        .faq-answer p { padding: 0 30px 25px 30px; color: var(--text-dim); font-size: 0.95rem; }
+        .faq-item.active { border-color: var(--primary); }
+        .faq-item.active .faq-answer { max-height: 250px; }
+        .faq-item.active .faq-question span { transform: rotate(45deg); }
+
+        /* CTA */
+        .cta { padding: 150px 0; text-align: center; }
+        .cta-inner {
+            background: radial-gradient(circle at center, #3a0000 0%, #030303 100%);
+            padding: 100px 40px; border-radius: 40px; border: 1px solid var(--primary);
+            max-width: 1000px; margin: 0 auto;
+        }
+        .cta h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 25px; letter-spacing: -2px; line-height: 1.1; }
+        .cta p { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 40px; }
+
+        footer { padding: 80px 0; text-align: center; border-top: 1px solid var(--border); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.2rem; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow"></div>
+
+    <header>
+        <div class="container nav">
+            <div class="logo">FORGEON</div>
+            <a href="https://wa.me/5521987627526" class="btn" style="padding: 10px 20px; font-size: 0.8rem; background: var(--primary); color: white;">Análise de Viabilidade</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <span class="badge">Protocolo de Ativos Blindados • Forge Core™</span>
+            <h1>O fim da estrutura amadora. <span>O início do seu império.</span></h1>
+            <p>Pare de perder margem de lucro para lojas lentas e designs genéricos. Projetamos ecossistemas de vendas de alta performance para marcas que buscam os 7 dígitos.</p>
+            <a href="https://wa.me/5521987627526" class="btn btn-primary">Análise de Viabilidade</a>
+        </section>
+
+        <section class="trust-bar">
+            <p>Infraestrutura de Ponta</p>
+            <div class="logos">
+                <span>HTML</span>
+                <span>JS</span>
+                <span>Next.js</span>
+                <span>VERCEL</span>
+                <span>TypeScript</span>
+                <span>POSTGRESQL</span>
+                <span>Node.js</span> 
+            </div>
+        </section>
+
+        <section class="infra">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-size: 2.5rem; letter-spacing: -1px;">Engenharia de Vendas Enterprise</h2>
+            </div>
+            <div class="grid-infra">
+                <div class="card-infra">
+                    <h3>Performance de Milissegundos</h3>
+                    <p>Cada 100ms de atraso reduzem seu ROI em 7%. Nossa engenharia de código garante carregamento instantâneo.</p>
+                </div>
+                <div class="card-infra">
+                    <h3>Propriedade Total de Dados</h3>
+                    <p>O maior ativo de uma marca são seus dados. Construa sua base proprietária e aumente o LTV.</p>
+                </div>
+                <div class="card-infra">
+                    <h3>Segurança de Ativos</h3>
+                    <p>Protocolos de proteção avançados contra ataques e instabilidades. Sua operação nunca para.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="comparison">
+            <div style="text-align: center;"><h2 style="font-size: 2.5rem;">Por que 97% das marcas estagnam?</h2></div>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Recurso Estratégico</th><th>Vendedores Amadores</th><th>Ecossistema ForgeOn</th></tr></thead>
+                    <tbody>
+                        <tr><td>Segurança do Negócio</td><td class="fail">Risco de Banimento</td><td class="check">Estrutura 100% Blindada</td></tr>
+                        <tr><td>Lucratividade Líquida</td><td class="fail">Taxas Abusivas</td><td class="check">Lucro Máximo no Bolso</td></tr>
+                        <tr><td>Controle de Escala</td><td class="fail">Refém de Algoritmos</td><td class="check">Previsibilidade 24/7</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="reviews-section">
+            <p class="reviews-title">Impacto Financeiro Real</p>
+            <div class="carousel-track">
+                <div class="review-card">
+                    <div><div class="stars">★★★★★</div><p class="review-text">"Batemos R$ 1.2MM/mês sem quedas. O ROI da implementação foi atingido em menos de 20 dias."</p></div>
+                    <div class="review-author"><img src="img/Marco-Silveira2cp.webp" class="author-img"><div class="author-info"><h4>Marcos Silveira</h4><p>CEO - TechFlow E-com</p></div></div>
+                </div>
+                <div class="review-card">
+                    <div><div class="stars">★★★★★</div><p class="review-text">"O checkout é uma máquina. Saímos de uma taxa de abandono de 60% para apenas 18% com a nova infra."</p></div>
+                    <div class="review-author"><img src="img/Ana-Beatriz-Lins2cp.webp" class="author-img"><div class="author-info"><h4>Ana Beatriz Lins</h4><p>Diretora - ModaVibe</p></div></div>
+                </div>
+                <div class="review-card">
+                    <div><div class="stars">★★★★★</div><p class="review-text">"Reduzimos nosso custo de aquisição em 22% apenas otimizando a latência via Forge Core™."</p></div>
+                    <div class="review-author"><img src="img/Felipe-D_Avila2cp.webp" class="author-img"><div class="author-info"><h4>Felipe D'Avila</h4><p>Fundador - PureGlow</p></div></div>
+                </div>
+                <div class="review-card">
+                    <div><div class="stars">★★★★★</div><p class="review-text">"Nossa operação de dropshipping nacional sofria com a instabilidade do checkout padrão. A Forgeon redesenhou nossa estrutura na Shopify focando em conversão mobile. O resultado foi um aumento imediato de 35% no lucro líquido por pedido."</p></div>
+                    <div class="review-author"><img src="img/Ricardo-Menezes2cp.webp" class="author-img"><div class="author-info"><h4>Ricardo Menezes</h4><p>Founder - Apex E-com Group</p></div></div>
+                </div>
+                <div class="review-card">
+                    <div><div class="stars">★★★★★</div><p class="review-text">"Migrar nossa infraestrutura para a Vercel com um front-end otimizado foi o divisor de águas. Hoje processamos milhares de pedidos simultâneos sem nenhum 'delay' ou queda de performance. É a engenharia que a escala exige."</p></div>
+                    <div class="review-author"><img src="img/Camila-Duarte2cp.webp" class="author-img"><div class="author-info"><h4>Camila Duarte</h4><p>COO - Lumina Store</p></div></div>
+                </div>
+                <div class="review-card">
+                    <div><div class="stars">★★★★★</div><p class="review-text">"O design amador estava matando nosso ROI de anúncios. A ForgeOn entregou uma interface de elite que passa a autoridade necessária para vender produtos de ticket alto. Saímos dos 6 para os 7 dígitos com segurança."</p></div>
+                    <div class="review-author"><img src="img/Bruno-Hoffman2cp.webp" class="author-img"><div class="author-info"><h4>Bruno Hoffman</h4><p>Head de Growth - Titan Brands</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-size: 2.5rem; letter-spacing: -1px;">Dúvidas Frequentes</h2>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="faq-item">
+                    <button class="faq-question">Vocês atendem o meu nicho específico? <span>+</span></button>
+                    <div class="faq-answer"><p>Sim. Desenvolvemos interfaces para todos os segmentos — de lojas de roupas a serviços complexos.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Preciso entender de programação? <span>+</span></button>
+                    <div class="faq-answer"><p>Não. Entregamos a solução pronta. Cuidamos de toda a parte técnica para você focar no lucro.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">Terei suporte após a entrega do projeto? <span>+</span></button>
+                    <div class="faq-answer"><p>Sim. Oferecemos um período de acompanhamento técnico para garantir que a transição para a nova infraestrutura seja suave, além de planos de manutenção para evolução contínua do seu ativo digital.</p></div>
+                </div>
+
+                    <div class="faq-item">
+                    <button class="faq-question">O site é otimizado para dispositivos móveis? <span>+</span></button>
+                    <div class="faq-answer"><p>Sim. Seguimos a filosofia Mobile-First. Todo o código é projetado para oferecer a melhor experiência de compra em smartphones, onde ocorrem mais de 80% das vendas atualmente.</p></div>
+                    </div>
+
+                    <div class="faq-item">
+                    <button class="faq-question">Quanto tempo leva para a infraestrutura estar no ar? <span>+</span></button>
+                    <div class="faq-answer"><p>O prazo médio de implementação é de 7 a 15 dias úteis, variando conforme a complexidade do ecossistema e as integrações necessárias para sua operação.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-inner">
+                <h2>Sua operação suporta o próximo nível?</h2>
+                <p>A tecnologia que separa os amadores dos líderes está a um clique.</p>
+                <a href="https://wa.me/5521987627526" class="btn" style="background: var(--primary); color: white;">Garantir Infraestrutura de Elite</a>
+                <p style="margin-top: 40px; font-size: 0.8rem; color: var(--accent);">● Apenas 2 vagas para implementação este mês.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo" style="margin-bottom: 20px;">FORGEON</div>
+        <p style="color: var(--text-dim); font-size: 0.85rem;">© 2026 ForgeOn. Soluções de alta performance para faturamento Enterprise.</p>
+    </footer>
+
+    <script>
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) item.classList.remove('active');
+            });
+            faqItem.classList.toggle('active');
+        });
+    });
+    </script>
+</body>
+</html>
